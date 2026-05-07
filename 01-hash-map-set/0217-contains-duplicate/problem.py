@@ -27,10 +27,16 @@ Example 3:
 - -10^9 <= nums[i] <= 10^9
 """
 from typing import List
-
+from collections import defaultdict
 
 def containsDuplicate(nums: List[int]) -> bool:
-    pass
+    num_map = defaultdict(int)
+    for num in nums:
+        num_map[num] += 1
+        if num_map[num]>=2:
+            return True
+    return False
+
 
 
 if __name__ == "__main__":

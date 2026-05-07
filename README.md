@@ -12,7 +12,7 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 ### 1. Hash Map / Set (5)
 - [x] [0001. Two Sum](./01-hash-map-set/0001-two-sum.py)
 - [x] [0217. Contains Duplicate](./01-hash-map-set/0217-contains-duplicate.py)
-- [x] [0242. Valid Anagram](./01-hash-map-set/0242-valid-anagram.py)
+- [x] [0242. Valid Anagram](./01-hash-map-set/0242-valid-anagram_REVIEW)
 - [x] [0349. Intersection of Two Arrays](./01-hash-map-set/0349-intersection-of-two-arrays.py)
 - [x] [0036. Valid Sudoku](./01-hash-map-set/0036-valid-sudoku.py)
 
@@ -32,8 +32,11 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0232. Implement Queue using Stacks](./05-queue/0232-implement-queue-using-stacks.py)
 - [x] [0933. Number of Recent Calls](./05-queue/0933-number-of-recent-calls.py)
 
-### 6~11. (Week 2 예정)
-- [ ] Binary Search
+### 6. Binary Search (2)
+- [ ] [0704. Binary Search](./06-binary-search/0704-binary-search/)
+- [ ] [0278. First Bad Version](./06-binary-search/0278-first-bad-version/)
+
+### 7~11. (예정)
 - [ ] Tree
 - [ ] Linked List
 - [ ] DP

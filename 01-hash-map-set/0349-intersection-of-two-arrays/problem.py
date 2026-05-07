@@ -28,7 +28,13 @@ from typing import List
 
 
 def intersection(nums1: List[int], nums2: List[int]) -> List[int]:
-    pass
+    answer_set = set()
+    set_1 = set(nums1)
+
+    for num2 in nums2:
+        if num2 in set_1:
+            answer_set.add(num2)
+    return list(answer_set)
 
 
 if __name__ == "__main__":

@@ -30,10 +30,19 @@ Example 2:
 
 
 def isAnagram(s: str, t: str) -> bool:
-    pass
+    if len(s) != len(t):
+        return False
+    ch_set_s = set(s)
+    for i in range(len(t)):
+        if t[i] not in ch_set_s:
+            return False
+    return True
 
 
 if __name__ == "__main__":
     print(isAnagram("anagram", "nagaram"))   # Expected: True
     print(isAnagram("rat", "car"))           # Expected: False
     print(isAnagram("listen", "silent"))     # Expected: True
+    print(isAnagram("aacc", "ccac"))  
+
+print(set("anagram"))
