@@ -2,8 +2,34 @@
 [0001] Two Sum (Easy)
 링크: https://leetcode.com/problems/two-sum/
 
-문제:
-    정수 배열 nums와 target이 주어질 때, 합이 target이 되는 두 수의 인덱스를 반환.
+## 문제
+
+정수 배열 `nums`와 정수 `target`이 주어진다.
+합이 `target`이 되는 두 수의 인덱스를 반환하라.
+같은 원소를 두 번 사용할 수 없으며, 정확히 하나의 답이 존재한다.
+
+## 예시
+
+Example 1:
+    Input:  nums = [2,7,11,15], target = 9
+    Output: [0,1]
+
+Example 2:
+    Input:  nums = [3,2,4], target = 6
+    Output: [1,2]
+
+Example 3:
+    Input:  nums = [3,3], target = 6
+    Output: [0,1]
+
+## 조건
+
+- 2 <= nums.length <= 10^4
+- -10^9 <= nums[i] <= 10^9
+- -10^9 <= target <= 10^9
+- 정확히 하나의 유효한 답이 존재한다.
+
+---
 
 핵심 아이디어:
     dict에 "이미 본 값 → 인덱스" 저장.
@@ -25,6 +51,15 @@
     - 음수: [-1, -2], target=-3 → [0, 1]
     - 두 수가 붙어있지 않을 때
 """
+
+
+## 손 추적 (Hand Trace)
+# nums = [2, 7, 11, 15], target = 9
+#
+#  i | num | complement | seen (before add) | 결과
+# ---|-----|------------|-------------------|------------------
+#  0 |  2  |     7      | {}                | 없음 → seen[2]=0
+#  1 |  7  |     2      | {2:0}             | 발견! → return [0,1]
 
 
 def twoSum(nums, target):

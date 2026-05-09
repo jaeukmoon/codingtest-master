@@ -31,14 +31,18 @@ Example 1:
 - ping()은 최대 10^4번 호출된다.
 """
 
-
+from collections import deque
 class RecentCounter:
 
     def __init__(self):
-        pass
-
+        self.q = deque()
+        self.count = deque()
     def ping(self, t: int) -> int:
-        pass
+        self.q.append(t)
+        self.count.append(t)
+        while self.count[0]< t-3000:
+            self.count.popleft()
+        return len(self.count)
 
 
 if __name__ == "__main__":

@@ -2,8 +2,31 @@
 [0217] Contains Duplicate (Easy)
 링크: https://leetcode.com/problems/contains-duplicate/
 
-문제:
-    배열에 중복 원소가 하나라도 있으면 True, 없으면 False 반환.
+## 문제
+
+정수 배열 `nums`가 주어진다.
+배열에 두 번 이상 등장하는 원소가 있으면 `true`, 모두 다르면 `false`를 반환하라.
+
+## 예시
+
+Example 1:
+    Input:  nums = [1,2,3,1]
+    Output: true
+
+Example 2:
+    Input:  nums = [1,2,3,4]
+    Output: false
+
+Example 3:
+    Input:  nums = [1,1,1,3,3,4,3,2,4,2]
+    Output: true
+
+## 조건
+
+- 1 <= nums.length <= 10^5
+- -10^9 <= nums[i] <= 10^9
+
+---
 
 핵심 아이디어:
     set에 원소를 하나씩 추가하면서 이미 있으면 True 반환.
@@ -24,6 +47,17 @@
     - 모두 같은 값: True
     - 빈 배열: False
 """
+
+
+## 손 추적 (Hand Trace)
+# nums = [1, 2, 3, 1]
+#
+#  num | seen (before)  | 결과
+# -----|----------------|----------------------
+#   1  | {}             | 없음 → add(1)
+#   2  | {1}            | 없음 → add(2)
+#   3  | {1,2}          | 없음 → add(3)
+#   1  | {1,2,3}        | 있음! → return True
 
 
 def containsDuplicate(nums):

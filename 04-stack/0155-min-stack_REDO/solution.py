@@ -2,8 +2,25 @@
 [0155] Min Stack (Medium)
 링크: https://leetcode.com/problems/min-stack/
 
-문제:
-    push, pop, top, getMin을 모두 O(1)에 지원하는 스택 구현.
+## 문제
+
+push, pop, top, getMin을 모두 O(1)에 지원하는 스택을 설계하라.
+
+## 예시
+
+    MinStack ms = new MinStack();
+    ms.push(-2); ms.push(0); ms.push(-3);
+    ms.getMin() → -3
+    ms.pop()
+    ms.top()    → 0
+    ms.getMin() → -2
+
+## 조건
+
+- -2^31 <= val <= 2^31 - 1
+- pop(), top(), getMin()은 항상 비어있지 않은 스택에서 호출된다.
+
+---
 
 핵심 아이디어:
     스택 두 개: 일반 스택 + min 추적 스택.
@@ -26,6 +43,30 @@
     - 중복 최솟값: [2,0,3,0] → pop 후에도 min은 0이어야 함 (이래서 <= 사용)
     - push 하나 후 getMin: 그 값이 최솟값
 """
+
+
+## 손 추적 (Hand Trace)
+# push(-2), push(0), push(-3), getMin, pop, top, getMin
+#
+#  op        | stack        | min_stack    | 반환
+# -----------|--------------|--------------|------
+#  push(-2)  | [-2]         | [-2]         |
+#  push(0)   | [-2,0]       | [-2]         | 0 > -2 이므로 min_stack 패스
+#  push(-3)  | [-2,0,-3]    | [-2,-3]      | -3 <= -2 이므로 push
+#  getMin()  | [-2,0,-3]    | [-2,-3]      | -3
+#  pop()     | [-2,0]       | [-2]         | -3==min_stack[-1] → min_stack도 pop
+#  top()     | [-2,0]       | [-2]         | 0
+#  getMin()  | [-2,0]       | [-2]         | -2
+#
+# 중복 최솟값 케이스: push(2),push(0),push(3),push(0)
+#  op      | stack      | min_stack
+# ---------|------------|----------
+#  push(2) | [2]        | [2]
+#  push(0) | [2,0]      | [2,0]    ← 0 <= 2 이므로 push
+#  push(3) | [2,0,3]    | [2,0]    ← 3 > 0 패스
+#  push(0) | [2,0,3,0]  | [2,0,0]  ← 0 <= 0 이므로 push (<=이라 중복 허용)
+#  pop()   | [2,0,3]    | [2,0]    ← 0==0 → min_stack pop
+#  getMin()→ 0  (아직 0이 min_stack에 있음)
 
 
 class MinStack:

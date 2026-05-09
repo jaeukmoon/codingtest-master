@@ -1,7 +1,9 @@
 __pycache__/
 *.pyc
+*.bak
 .DS_Store
 .vscode/
 .idea/
+.claude/
 *.egg-info/
 .pytest_cache/

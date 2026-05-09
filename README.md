@@ -21,16 +21,16 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0167. Two Sum II](./02-two-pointers/0167-two-sum-ii.py)
 
 ### 3. Sliding Window (2)
-- [x] [0121. Best Time to Buy and Sell Stock](./03-sliding-window/0121-best-time-to-buy-and-sell-stock.py)
-- [x] [0053. Maximum Subarray](./03-sliding-window/0053-maximum-subarray.py)
+- [x] [0121. Best Time to Buy and Sell Stock](./03-sliding-window/0121-best-time-to-buy-and-sell-stock/)
+- [x] [0053. Maximum Subarray](./03-sliding-window/0053-maximum-subarray/)
 
 ### 4. Stack (2)
 - [x] [0020. Valid Parentheses](./04-stack/0020-valid-parentheses.py)
-- [x] [0155. Min Stack](./04-stack/0155-min-stack.py)
+- [x] [0155. Min Stack](./04-stack/0155-min-stack_REDO/)
 
 ### 5. Queue (2)
 - [x] [0232. Implement Queue using Stacks](./05-queue/0232-implement-queue-using-stacks.py)
-- [x] [0933. Number of Recent Calls](./05-queue/0933-number-of-recent-calls.py)
+- [x] [0933. Number of Recent Calls](./05-queue/0933-number-of-recent-calls_REDO/)
 
 ### 6. Binary Search (2)
 - [ ] [0704. Binary Search](./06-binary-search/0704-binary-search/)

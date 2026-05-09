@@ -2,8 +2,28 @@
 [0704] Binary Search (Easy)
 https://leetcode.com/problems/binary-search/
 
-문제:
-    오름차순 정렬된 배열에서 target의 인덱스 반환. 없으면 -1.
+## 문제
+
+오름차순 정렬된 정수 배열 `nums`와 정수 `target`이 주어진다.
+`target`이 존재하면 인덱스를 반환, 없으면 -1을 반환하라.
+
+## 예시
+
+Example 1:
+    Input:  nums = [-1,0,3,5,9,12], target = 9
+    Output: 4
+
+Example 2:
+    Input:  nums = [-1,0,3,5,9,12], target = 2
+    Output: -1
+
+## 조건
+
+- 1 <= nums.length <= 10^4
+- -10^4 < nums[i], target < 10^4
+- nums의 모든 원소는 유일하며 오름차순 정렬되어 있다.
+
+---
 
 핵심 아이디어:
     left, right 포인터. mid = (left + right) // 2.
@@ -28,6 +48,24 @@ https://leetcode.com/problems/binary-search/
     - 짝수/홀수 길이 모두 동작해야 함
 """
 from typing import List
+
+
+## 손 추적 (Hand Trace)
+# nums = [-1, 0, 3, 5, 9, 12], target = 9
+# idx:    0   1  2  3  4   5
+#
+#  left | right | mid | nums[mid] | 판단
+# ------|-------|-----|-----------|------------------
+#   0   |   5   |  2  |     3     | 3 < 9 → left=3
+#   3   |   5   |  4  |     9     | 9 == 9 → return 4 ✓
+#
+# 실패 케이스 target=2:
+#  left | right | mid | nums[mid] | 판단
+# ------|-------|-----|-----------|------------------
+#   0   |   5   |  2  |     3     | 3 > 2 → right=1
+#   0   |   1   |  0  |    -1     | -1 < 2 → left=1
+#   1   |   1   |  1  |     0     | 0 < 2 → left=2
+#   2   |   1   |  -  |     -     | left>right → return -1
 
 
 def search(nums: List[int], target: int) -> int:

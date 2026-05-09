@@ -42,7 +42,18 @@ Example 5:
 
 
 def isValid(s: str) -> bool:
-    pass
+    is_valid = {')':'(', '}': '{', ']': '['}
+    s_stack = []
+    for c in s:
+        if c in '({[':
+            s_stack.append(c)
+        else:
+            if len(s_stack)==0 or s_stack.pop() != is_valid[c]:
+                return False
+    if len(s_stack)==0:
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":

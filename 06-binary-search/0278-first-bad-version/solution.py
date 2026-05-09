@@ -2,8 +2,27 @@
 [0278] First Bad Version (Easy)
 https://leetcode.com/problems/first-bad-version/
 
-문제:
-    n개 버전 중 최초 불량 버전 탐색. isBadVersion(v) API 호출 최소화.
+## 문제
+
+n개의 버전 [1, 2, ..., n]이 있다. 어느 시점부터 이후 버전은 모두 불량이다.
+`isBadVersion(v)` API로 특정 버전이 불량인지 확인할 수 있다.
+API 호출 횟수를 최소화하면서 최초 불량 버전을 반환하라.
+
+## 예시
+
+Example 1:
+    Input:  n = 5, bad = 4
+    Output: 4
+
+Example 2:
+    Input:  n = 1, bad = 1
+    Output: 1
+
+## 조건
+
+- 1 <= bad <= n <= 2^31 - 1
+
+---
 
 핵심 아이디어:
     경계 이진 탐색. isBadVersion(mid)가 True면 right = mid (mid가 답일 수 있음).
@@ -27,6 +46,20 @@ https://leetcode.com/problems/first-bad-version/
     - bad = n: 마지막만 불량
     - n이 2^31 - 1에 가까울 때: mid = left + (right - left) // 2 로 overflow 방지
 """
+
+
+## 손 추적 (Hand Trace)
+# n=5, bad=4 (버전 4부터 불량)
+#
+#  left | right | mid | isBadVersion(mid) | 판단
+# ------|-------|-----|-------------------|------------------
+#   1   |   5   |  3  |      False        | left=4
+#   4   |   5   |  4  |      True         | right=4
+#   4   |   4   |  -  |      -            | left==right → return 4 ✓
+#
+# 704번과 비교:
+#  - 704: while left <= right, right = mid-1  (정확한 값 탐색)
+#  - 278: while left < right,  right = mid    (경계 탐색, mid가 답일 수 있음)
 
 
 def solution(isBadVersion):

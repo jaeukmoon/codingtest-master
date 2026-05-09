@@ -2,9 +2,24 @@
 [0933] Number of Recent Calls (Easy)
 링크: https://leetcode.com/problems/number-of-recent-calls/
 
-문제:
-    ping(t) 호출 시, 최근 3000ms 내의 ping 개수 반환.
-    (범위: [t - 3000, t])
+## 문제
+
+`ping(t)` 호출 시, [t - 3000, t] 범위 내의 ping 수를 반환하라.
+t는 항상 이전 ping보다 크다 (strictly increasing).
+
+## 예시
+
+    ping(1)    → 1
+    ping(100)  → 2
+    ping(3001) → 3
+    ping(3002) → 3  (1ms는 범위 [2, 3002] 밖)
+
+## 조건
+
+- 1 <= t <= 10^9, strictly increasing
+- ping()은 최대 10^4번 호출된다.
+
+---
 
 핵심 아이디어:
     deque로 시간 윈도우 관리. 새 ping 추가 후, 윈도우 밖(t - 3000 이전) 원소는
@@ -26,6 +41,18 @@
     - ping(1) → 1, ping(100) → 2, ping(3001) → 3, ping(3002) → 3
 """
 from collections import deque
+
+
+## 손 추적 (Hand Trace)
+# ping(1), ping(100), ping(3001), ping(3002)
+#
+#  t    | append 후 q      | 제거 조건(q[0] < t-3000) | 제거 후 q    | len
+# ------|------------------|--------------------------|-------------|----
+#  1    | [1]              | q[0]=1 < -2999? NO       | [1]         |  1
+#  100  | [1,100]          | q[0]=1 < -2900? NO       | [1,100]     |  2
+#  3001 | [1,100,3001]     | q[0]=1 < 1? NO           | [1,100,3001]|  3
+#  3002 | [1,100,3001,3002]| q[0]=1 < 2? YES→popleft  | [100,3001,3002]| 3
+#       |                  | q[0]=100 < 2? NO  → stop |             |
 
 
 class RecentCounter:

@@ -36,7 +36,14 @@ from typing import List
 
 
 def maxSubArray(nums: List[int]) -> int:
-    pass
+    if len(nums) == 1:
+        return nums[0]
+    curr_sum = nums[0]+nums[1]
+
+    if curr_sum <
+    max_sum = -1e6
+    max_sum = max(max_sum,curr_sum)
+    return max_sum
 
 
 if __name__ == "__main__":

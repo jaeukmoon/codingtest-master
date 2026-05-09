@@ -2,9 +2,26 @@
 [0232] Implement Queue using Stacks (Easy)
 링크: https://leetcode.com/problems/implement-queue-using-stacks/
 
-문제:
-    Stack 두 개만 써서 Queue(FIFO) 구현.
-    push, pop, peek, empty 지원.
+## 문제
+
+스택 두 개만 사용하여 FIFO 큐를 구현하라.
+push(x), pop(), peek(), empty() 지원.
+
+## 예시
+
+    MyQueue q = new MyQueue();
+    q.push(1); q.push(2);
+    q.peek()  → 1
+    q.pop()   → 1
+    q.empty() → false
+
+## 조건
+
+- 1 <= x <= 9
+- push, pop, peek, empty 각각 최대 100번 호출된다.
+- pop()과 peek()은 항상 유효한 큐에서만 호출된다.
+
+---
 
 핵심 아이디어:
     in_stack(push용) + out_stack(pop용). out_stack이 비었을 때만 in_stack 전체를
@@ -25,6 +42,21 @@
     - pop할 때 out_stack 비어있고 in_stack에도 없으면 에러 (문제에서 valid ops 보장)
     - push 여러 번 후 pop: 먼저 push한 게 먼저 나와야 함
 """
+
+
+## 손 추적 (Hand Trace)
+# push(1), push(2), peek, pop, pop
+#
+#  op      | in_stack | out_stack | 반환
+# ---------|----------|-----------|------
+#  push(1) | [1]      | []        |
+#  push(2) | [1,2]    | []        |
+#  peek()  | []       | [2,1]     | 1   ← out 비어서 이동: [1,2]→pop→[2,1]
+#  pop()   | []       | [2]       | 1   ← out에서 pop
+#  pop()   | []       | []        | 2   ← out에서 pop
+#
+# 핵심: out_stack이 비었을 때만 이동 (이미 있으면 그냥 씀)
+# push(3) 후 pop() → out 비었으므로 이동: in[3]→out[3] → pop→3
 
 
 class MyQueue:

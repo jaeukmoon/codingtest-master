@@ -38,23 +38,27 @@ Example 1:
 각 연산의 amortized 시간복잡도가 O(1)이 되도록 구현할 수 있는가?
 """
 
+from collections import deque
 
 class MyQueue:
 
     def __init__(self):
-        pass
+        self.q = deque()
 
     def push(self, x: int) -> None:
-        pass
+        self.q.append(x)
 
     def pop(self) -> int:
-        pass
+        return self.q.popleft()
 
     def peek(self) -> int:
-        pass
+        return self.q[0]
 
     def empty(self) -> bool:
-        pass
+        if len(self.q) == 0:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":

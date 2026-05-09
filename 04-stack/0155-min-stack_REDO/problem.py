@@ -39,19 +39,26 @@ Example 1:
 class MinStack:
 
     def __init__(self):
-        pass
+        self.stack = []
+        self.min_stack = []
 
     def push(self, val: int) -> None:
-        pass
+        self.stack.append(val)
+        if len(self.min_stack) == 0:
+            self.min_stack.append(val)
+        elif self.min_stack[-1]>=val:
+            self.min_stack.append(val)
 
     def pop(self) -> None:
-        pass
+        if self.min_stack[-1] == self.stack[-1]:
+            self.min_stack.pop()
+        self.stack.pop()
 
     def top(self) -> int:
-        pass
+        return self.stack[-1]
 
     def getMin(self) -> int:
-        pass
+        return self.min_stack[-1]
 
 
 if __name__ == "__main__":

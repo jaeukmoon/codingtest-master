@@ -2,8 +2,27 @@
 [0349] Intersection of Two Arrays (Easy)
 링크: https://leetcode.com/problems/intersection-of-two-arrays/
 
-문제:
-    두 배열의 교집합을 중복 없이 반환.
+## 문제
+
+두 정수 배열 `nums1`과 `nums2`가 주어진다.
+두 배열의 교집합을 반환하라. 결과에 중복이 없어야 하며, 순서는 무관하다.
+
+## 예시
+
+Example 1:
+    Input:  nums1 = [1,2,2,1], nums2 = [2,2]
+    Output: [2]
+
+Example 2:
+    Input:  nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+    Output: [9,4]
+
+## 조건
+
+- 1 <= nums1.length, nums2.length <= 1000
+- 0 <= nums1[i], nums2[i] <= 1000
+
+---
 
 핵심 아이디어:
     nums1을 set으로 변환 후, nums2를 순회하면서 set1에 있으면 result에 추가.
@@ -25,6 +44,20 @@
     - 한쪽이 빈 배열: []
     - 한쪽에 중복 많은 경우 → set이 자동 처리
 """
+
+
+## 손 추적 (Hand Trace)
+# nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+# set1 = {4,9,5}
+#
+#  num2 | in set1? | answer_set
+# ------|----------|-----------
+#   9   |   YES    | {9}
+#   4   |   YES    | {9,4}
+#   9   |   YES    | {9,4}   ← set이라 중복 무시
+#   8   |   NO     | {9,4}
+#   4   |   YES    | {9,4}   ← 중복 무시
+# → return [9,4]
 
 
 def intersection(nums1, nums2):
