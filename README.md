@@ -36,8 +36,14 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [ ] [0704. Binary Search](./06-binary-search/0704-binary-search/)
 - [ ] [0278. First Bad Version](./06-binary-search/0278-first-bad-version/)
 
-### 7~11. (예정)
-- [ ] Tree
+### 7. Tree (4)
+- [x] [0104. Maximum Depth of Binary Tree](./07-tree/0104-maximum-depth-of-binary-tree/)
+- [x] [0100. Same Tree](./07-tree/0100-same-tree/)
+- [x] [0102. Binary Tree Level Order Traversal](./07-tree/0102-binary-tree-level-order-traversal/)
+- [x] [0226. Invert Binary Tree](./07-tree/0226-invert-binary-tree/)
+
+### 8~11. (예정)
+- [ ] Linked List
 - [ ] Linked List
 - [ ] DP
 - [ ] Heap

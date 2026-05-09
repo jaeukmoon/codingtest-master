@@ -7,3 +7,6 @@ __pycache__/
 .claude/
 *.egg-info/
 .pytest_cache/
+
+# personal interview prep (private)
+google_fde_rrk_full_prep.md
