@@ -81,7 +81,15 @@ def isSameTree(p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         return False
     if p.val != q.val:
         return False
-    return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
+    if not isSameTree(p.left, q.left):
+        return False
+    if not isSameTree(p.right, q.right):
+        return False
+    return True
+
+
+# 한 줄 버전 (Pythonic — 면접 후 언급용)
+# return isSameTree(p.left, q.left) and isSameTree(p.right, q.right)
 
 
 if __name__ == "__main__":

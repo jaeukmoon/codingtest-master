@@ -68,7 +68,13 @@ class TreeNode:
 def maxDepth(root: Optional[TreeNode]) -> int:
     if root is None:
         return 0
-    return 1 + max(maxDepth(root.left), maxDepth(root.right))
+    left = maxDepth(root.left)
+    right = maxDepth(root.right)
+    return 1 + max(left, right)
+
+
+# 한 줄 버전 (Pythonic — 면접 후 언급용)
+# return 1 + max(maxDepth(root.left), maxDepth(root.right))
 
 
 # BFS 버전 (대안)

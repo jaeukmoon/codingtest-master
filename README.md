@@ -42,12 +42,27 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0102. Binary Tree Level Order Traversal](./07-tree/0102-binary-tree-level-order-traversal/)
 - [x] [0226. Invert Binary Tree](./07-tree/0226-invert-binary-tree/)
 
-### 8~11. (예정)
-- [ ] Linked List
-- [ ] Linked List
-- [ ] DP
-- [ ] Heap
-- [ ] Design (LRU Cache 등)
+### 8~11. (Easy/주제별, 예정)
+- [ ] Linked List, DP, Heap, Design
+
+---
+
+## Medium 문제 (주제 라벨 없음 — 풀이 시 패턴 직접 식별)
+
+### Top 10 Medium (필수)
+- [ ] [0146. LRU Cache](./top-10-medium/0146-lru-cache/)
+- [ ] [0200. Number of Islands](./top-10-medium/0200-number-of-islands/)
+- [ ] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams/)
+- [ ] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters/)
+- [ ] [0015. 3Sum](./top-10-medium/0015-3sum/)
+- [ ] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree/)
+- [ ] [0347. Top K Frequent Elements](./top-10-medium/0347-top-k-frequent-elements/)
+- [ ] [0739. Daily Temperatures](./top-10-medium/0739-daily-temperatures/)
+- [ ] [0033. Search in Rotated Sorted Array](./top-10-medium/0033-search-in-rotated-sorted-array/)
+- [ ] [0322. Coin Change](./top-10-medium/0322-coin-change/)
+
+### Rest Medium (24문제, Top 10 마친 후)
+[`./rest-medium/`](./rest-medium/) — 0002, 0011, 0019, 0022, 0034, 0074, 0075, 0128, 0143, 0150, 0198, 0199, 0207, 0230, 0236, 0300, 0380, 0424, 0438, 0535, 0560, 0567, 0981, 0994
 
 ## 자료
 

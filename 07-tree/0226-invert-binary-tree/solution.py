@@ -84,8 +84,15 @@ class TreeNode:
 def invertTree(root: Optional[TreeNode]) -> Optional[TreeNode]:
     if root is None:
         return None
-    root.left, root.right = invertTree(root.right), invertTree(root.left)
+    left = invertTree(root.left)
+    right = invertTree(root.right)
+    root.left = right
+    root.right = left
     return root
+
+
+# 한 줄 swap 버전 (Pythonic — 면접 후 언급용)
+# root.left, root.right = invertTree(root.right), invertTree(root.left)
 
 
 # BFS 버전 (대안 — 재귀 한도 회피용)
