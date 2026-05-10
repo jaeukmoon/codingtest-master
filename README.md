@@ -42,9 +42,10 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0102. Binary Tree Level Order Traversal](./07-tree/0102-binary-tree-level-order-traversal/)
 - [x] [0226. Invert Binary Tree](./07-tree/0226-invert-binary-tree/)
 
-### 8. Linked List (2)
+### 8. Linked List (3)
 - [x] [0206. Reverse Linked List](./08-linked-list/0206-reverse-linked-list/)
 - [x] [0021. Merge Two Sorted Lists](./08-linked-list/0021-merge-two-sorted-lists/)
+- [x] [0141. Linked List Cycle](./08-linked-list/0141-linked-list-cycle/)
 
 ### 9~11. (예정)
 - [ ] DP
