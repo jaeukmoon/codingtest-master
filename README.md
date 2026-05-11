@@ -55,8 +55,11 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 
 ### 11. Design — see Top 10 / Rest Medium folders (146, 380, 981)
 
-### 12. 2D Grid (1)
+### 12. 2D Grid (4)
+- [x] [0733. Flood Fill](./12-2d-grid/0733-flood-fill/)
+- [x] [0200. Number of Islands](./12-2d-grid/0200-number-of-islands/) — solution.py 포함 (top-10에도 있음)
 - [x] [0695. Max Area of Island](./12-2d-grid/0695-max-area-of-island/)
+- [x] [0994. Rotting Oranges](./12-2d-grid/0994-rotting-oranges/) — solution.py 포함 (rest-medium에도 있음)
 
 ### 13. Backtracking (2)
 - [x] [0078. Subsets](./13-backtracking/0078-subsets/)
