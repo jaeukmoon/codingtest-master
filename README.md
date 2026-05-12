@@ -47,8 +47,10 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0021. Merge Two Sorted Lists](./08-linked-list/0021-merge-two-sorted-lists/)
 - [x] [0141. Linked List Cycle](./08-linked-list/0141-linked-list-cycle/)
 
-### 9. DP (1)
+### 9. DP (3)
 - [x] [0070. Climbing Stairs](./09-dp/0070-climbing-stairs/)
+- [x] [0198. House Robber](./09-dp/0198-house-robber/) — solution.py 포함 (rest-medium에도 있음)
+- [x] [0322. Coin Change](./09-dp/0322-coin-change/) — solution.py 포함 (top-10에도 있음)
 
 ### 10. Heap (1)
 - [x] [0703. Kth Largest Element in a Stream](./10-heap/0703-kth-largest-element-in-a-stream/)
