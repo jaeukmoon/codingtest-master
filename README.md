@@ -52,8 +52,9 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0198. House Robber](./09-dp/0198-house-robber/) — solution.py 포함 (rest-medium에도 있음)
 - [x] [0322. Coin Change](./09-dp/0322-coin-change/) — solution.py 포함 (top-10에도 있음)
 
-### 10. Heap (1)
+### 10. Heap (2)
 - [x] [0703. Kth Largest Element in a Stream](./10-heap/0703-kth-largest-element-in-a-stream/)
+- [x] [1046. Last Stone Weight](./10-heap/1046-last-stone-weight/)
 
 ### 11. Design — see Top 10 / Rest Medium folders (146, 380, 981)
 
