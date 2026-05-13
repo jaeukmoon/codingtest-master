@@ -56,7 +56,9 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0703. Kth Largest Element in a Stream](./10-heap/0703-kth-largest-element-in-a-stream/)
 - [x] [1046. Last Stone Weight](./10-heap/1046-last-stone-weight/)
 
-### 11. Design — see Top 10 / Rest Medium folders (146, 380, 981)
+### 11. Design (2)
+- [x] [0146. LRU Cache](./11-design/0146-lru-cache/) — solution.py 포함 (top-10에도 있음)
+- [x] [0981. Time Based Key-Value Store](./11-design/0981-time-based-key-value-store/) — solution.py 포함 (rest-medium에도 있음)
 
 ### 12. 2D Grid (4)
 - [x] [0733. Flood Fill](./12-2d-grid/0733-flood-fill/)
