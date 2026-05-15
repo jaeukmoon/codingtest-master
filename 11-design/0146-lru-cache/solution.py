@@ -126,59 +126,89 @@ Example: capacity=2, put(1,1), put(2,2), get(1)→1, put(3,3)는 2를 제거(LRU
 
 
 class Node:
+    """DLL의 노드. dict의 value와 DLL의 원소를 겸함 (같은 객체를 양쪽이 참조).
+
+    왜 Node 클래스가 필요한가:
+      1) DLL을 만들려면 prev/next 포인터를 매달 객체가 필요. (int만 들면 순서 추적 불가)
+      2) key를 함께 저장해야 evict 시 dict에서 O(1)로 지울 수 있음.
+         - evict 절차: tail.prev로 LRU 노드 발견 → DLL에서 떼기 → dict에서도 삭제
+         - dict 삭제에 'key'가 필요 → 노드 안에 key를 들고 있어야 lru.key 한 번에 가능
+         - key 없으면 "이 노드가 어느 key인지" 찾으려고 dict 전체 순회 O(N)이 됨.
+      3) 같은 Node 객체가 cache[key]의 value이자 DLL의 원소 → 한 곳만 옮기면 됨.
+    """
     def __init__(self, key=0, val=0):
-        self.key = key
-        self.val = val
-        self.prev = None
-        self.next = None
+        self.key = key                    # evict 시 dict[key] 삭제에 사용
+        self.val = val                    # get이 반환할 실제 값
+        self.prev = None                  # DLL 앞 노드 (head 방향)
+        self.next = None                  # DLL 뒤 노드 (tail 방향)
 
 
 class LRUCache:
 
     def __init__(self, capacity: int):
         self.cap = capacity
-        self.cache = {}                  # key → Node
-        # Dummy head/tail로 경계 처리 단순화
-        self.head = Node()               # 가장 최근 쪽
-        self.tail = Node()               # 가장 오래된 쪽
+        self.cache = {}                  # key → Node (O(1) 노드 위치 조회)
+
+        # Dummy head/tail: 실제 데이터가 없는 경계 노드.
+        # 덕분에 "맨 앞/맨 뒤 삽입·삭제" 시 prev/next가 None인 경우를 따로 처리할 필요 없음.
+        # 모든 실제 노드는 head와 tail '사이'에만 존재.
+        self.head = Node()               # head.next = 가장 최근에 쓴 노드
+        self.tail = Node()               # tail.prev = 가장 오래된 노드 (LRU)
         self.head.next = self.tail
         self.tail.prev = self.head
 
     def _remove(self, node):
-        """DLL에서 노드 떼기"""
-        node.prev.next = node.next
-        node.next.prev = node.prev
+        """DLL에서 node를 떼어낸다. O(1).
+
+        node의 참조를 이미 들고 있고, DLL이라 prev도 즉시 알 수 있어서 포인터 2개만 수술.
+            ... ⇄ A ⇄ node ⇄ C ⇄ ...    →    ... ⇄ A ⇄ C ⇄ ...
+        """
+        node.prev.next = node.next       # A.next = C
+        node.next.prev = node.prev       # C.prev = A
+        # node의 prev/next는 굳이 None으로 안 만들어도 됨 (어차피 참조 끊겨 GC됨)
 
     def _add_to_front(self, node):
-        """DLL 맨 앞(head 바로 뒤)에 노드 삽입"""
-        node.next = self.head.next
-        node.prev = self.head
-        self.head.next.prev = node
-        self.head.next = node
+        """node를 head 바로 뒤(가장 최근 자리)에 삽입. O(1).
+
+        삽입 전:  head ⇄ X ⇄ ...           (X = head.next, 기존 최근)
+        삽입 후:  head ⇄ node ⇄ X ⇄ ...
+        """
+        node.next = self.head.next       # node → X
+        node.prev = self.head            # head ← node
+        self.head.next.prev = node       # X.prev = node
+        self.head.next = node            # head.next = node
+        # 순서 주의: head.next를 갱신하기 전에 'X.prev = node'를 먼저 해야 X 참조를 잃지 않음.
 
     def get(self, key: int) -> int:
+        # 1) dict로 노드 참조를 O(1)에 획득 (없으면 -1)
         if key not in self.cache:
             return -1
         node = self.cache[key]
+        # 2) "방금 썼다" → DLL에서 떼서 맨 앞으로 이동 (O(1) + O(1))
         self._remove(node)
-        self._add_to_front(node)         # 최근 사용으로 갱신
+        self._add_to_front(node)
+        # dict는 건드릴 필요 없음: cache[key]는 여전히 같은 node 객체를 가리킴.
         return node.val
 
     def put(self, key: int, value: int) -> None:
+        # 기존 키면 먼저 떼어낸다 (위치 갱신 + 값 갱신을 위해 새 노드로 교체).
+        # 새 노드를 만드는 대신 node.val만 바꾸고 _move_to_front 해도 동작은 같음 — 취향 차이.
         if key in self.cache:
-            # 기존 키: 노드 제거 후 새로 만들어 다시 넣기 (값 갱신 + 위치 갱신)
             old_node = self.cache[key]
             self._remove(old_node)
+            # 주의: dict에서 지우지 않음. 바로 아래에서 같은 key로 덮어쓸 거라 불필요.
+            # (만약 지웠다가 다시 넣으면 dict 두 번 만지는 셈)
 
         new_node = Node(key, value)
-        self.cache[key] = new_node
-        self._add_to_front(new_node)
+        self.cache[key] = new_node       # dict 등록
+        self._add_to_front(new_node)     # DLL 맨 앞에 삽입 (= "방금 썼다")
 
+        # 용량 초과 시 LRU evict.
+        # 기존 키 갱신 경로에선 len이 늘지 않아 이 분기를 안 탐 → if 하나로 충분.
         if len(self.cache) > self.cap:
-            # tail 바로 앞 노드가 LRU → 제거
-            lru = self.tail.prev
-            self._remove(lru)
-            del self.cache[lru.key]
+            lru = self.tail.prev         # tail 바로 앞 = 가장 오래된 노드
+            self._remove(lru)            # DLL에서 제거
+            del self.cache[lru.key]      # ← 여기서 lru.key가 필요 (Node가 key를 들고 있는 이유)
 
 
 if __name__ == "__main__":
