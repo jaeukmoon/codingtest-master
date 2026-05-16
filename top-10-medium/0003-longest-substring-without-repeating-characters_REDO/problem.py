@@ -29,8 +29,6 @@ Example 3:
 - 0 <= s.length <= 5 * 10^4
 - s는 영어 알파벳, 숫자, 기호, 공백으로 구성
 """
-
-
 def lengthOfLongestSubstring(s: str) -> int:
     pass
 

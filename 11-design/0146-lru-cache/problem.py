@@ -41,19 +41,63 @@ Example 1:
 - 0 <= value <= 10^5
 - get, put 합쳐서 최대 2 * 10^5번 호출
 """
+# head <-> tail
+# cache = {key: Node}
 
+class Node:
+    def __init__(self, key = 0, val = 0):
+        self.key = key
+        self.val = val
+        self.prev = None
+        self.next = None
 
 class LRUCache:
-
+    # head <-> tail
     def __init__(self, capacity: int):
-        pass
+        self.cap = capacity
+        self.cache = {}
+        self.head = Node()
+        self.tail = Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+    
+    # head <-> X <-> head.next
+    def add_front(self, node):
+        node.next = self.head.next
+        node.prev = self.head # head <- node -> head.next
+        self.head.next.prev = node
+        self.head.next = node
+
+    
+    # Y <-> node <-> X
+    
+    def remove(self, node):
+        node.prev.next = node.next # Y.next = X
+        node.next.prev = node.prev # X.prev = Y
+
+        
 
     def get(self, key: int) -> int:
-        pass
+        if key not in self.cache:
+            return -1
+        node = self.cache[key]
+        self.remove(node) 
+        self.add_front(node)
+        return node.val
 
     def put(self, key: int, value: int) -> None:
-        pass
+        if key in self.cache:
+            old_node = self.cache[key]
+            self.remove(old_node)
 
+        new_node = Node(key,value)
+        self.cache[key] = new_node
+        self.add_front(new_node)
+
+        if len(self.cache) > self.cap:
+            lru = self.tail.prev
+            self.remove(lru)
+            del self.cache[lru.key]
 
 if __name__ == "__main__":
     lru = LRUCache(2)

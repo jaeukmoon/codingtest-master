@@ -28,10 +28,13 @@ Example 3:
 - strs[i]는 소문자 영어 알파벳으로만 구성
 """
 from typing import List
+from collections import defaultdict
+
 
 
 def groupAnagrams(strs: List[str]) -> List[List[str]]:
     pass
+
 
 
 if __name__ == "__main__":
