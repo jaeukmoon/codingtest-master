@@ -78,7 +78,7 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 
 ---
 
-## REDO 목록 (재연습 대상, 10개)
+## REDO 목록 (재연습 대상, 11개)
 
 > 이미 한 번 푼 문제 중 **다시 풀어볼** 항목. 폴더명에 `_REDO`/`-REDO` 또는 `_REVIEW` 접미사로 표시.
 > 체크박스는 "재연습 완료" 기준 (재풀이 후 `[x]`).
@@ -92,10 +92,11 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [ ] [0322. Coin Change](./09-dp/0322-coin-change-REDO/)
 - [ ] [0695. Max Area of Island](./12-2d-grid/0695-max-area-of-island-REDO/)
 
-### Top 10 Medium (3개)
+### Top 10 Medium (4개)
 - [ ] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters_REDO/)
 - [ ] [0015. 3Sum](./top-10-medium/0015-3sum_REDO/)
 - [ ] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams_REDO/)
+- [ ] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree_REDO/)
 
 ---
 
@@ -107,7 +108,7 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams_REDO/) **(직접)**
 - [x] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters_REDO/) **(직접)**
 - [x] [0015. 3Sum](./top-10-medium/0015-3sum_REDO/) **(직접)**
-- [x] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree/)
+- [x] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree_REDO/)
 - [x] [0347. Top K Frequent Elements](./top-10-medium/0347-top-k-frequent-elements/)
 - [x] [0739. Daily Temperatures](./top-10-medium/0739-daily-temperatures/)
 - [x] [0033. Search in Rotated Sorted Array](./top-10-medium/0033-search-in-rotated-sorted-array/)

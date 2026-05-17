@@ -45,9 +45,33 @@ class TreeNode:
         self.right = right
 
 
-def isValidBST(root: Optional[TreeNode]) -> bool:
-    pass
+# def isValidBST(root: Optional[TreeNode]) -> bool:
+#     if root is None:
+#         return True
+#     if root.left:
+#         if root.left.val>=root.val:
+#             return False
+#         else:
+#             isValidBST(root.left)
+#     if root.right:
+#         if root.right.val<=root.val:
+#             return False
+#         else:
+#             isValidBST(root.right)
+#     return True
 
+def isValidBST(root: Optional[TreeNode],lo = float('-inf'), hi = float('inf')) -> bool:
+     # 1) None은 빈 트리 — 유효 (재귀의 종료 조건)
+    if root is None:
+        return True
+    if root.val <= lo or root.val>=hi:
+        return False
+    
+    if not isValidBST(root.left,lo,root.val):
+        return False
+    if not isValidBST(root.right, root.val, hi):
+        return False
+    return True
 
 if __name__ == "__main__":
     # [2,1,3]
