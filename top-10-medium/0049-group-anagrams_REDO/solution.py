@@ -123,4 +123,4 @@ if __name__ == "__main__":
 #         for c in s:
 #             counts[ord(c)-ord('a')] += 1
 #         groups[tuple(counts)].append(s)
-#     return list(groups.values)
+#     return list(groups.values())
