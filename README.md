@@ -9,8 +9,9 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [ ] Week 3: Rest Medium (3/24) + OOP Design 심화 + Mock Interview
 
 > **마커 범례**
-> - `[x]` = 커리큘럼 진행 완료 (solution.py 존재)
+> - `[x]` = 커리큘럼 진행 완료 (solution.py 존재, 기본 풀이 끝남)
 > - `**(직접)**` = problem.py에 직접 풀이 작성 (`python scan_attempts.py`로 자동 감지)
+> - 폴더명에 `_REDO` / `-REDO` / `_REVIEW` = 재연습 대상 (아래 [REDO 목록](#redo-목록-재연습-대상-10개) 참고)
 
 ## 패턴별 인덱스
 
@@ -77,6 +78,27 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 
 ---
 
+## REDO 목록 (재연습 대상, 10개)
+
+> 이미 한 번 푼 문제 중 **다시 풀어볼** 항목. 폴더명에 `_REDO`/`-REDO` 또는 `_REVIEW` 접미사로 표시.
+> 체크박스는 "재연습 완료" 기준 (재풀이 후 `[x]`).
+
+### Easy / Pattern (§1-§12, 7개)
+- [ ] [0242. Valid Anagram](./01-hash-map-set/0242-valid-anagram_REVIEW/) — REVIEW
+- [ ] [0121. Best Time to Buy and Sell Stock](./03-sliding-window/0121-best-time-to-buy-and-sell-stock_REDO/)
+- [ ] [0155. Min Stack](./04-stack/0155-min-stack_REDO/)
+- [ ] [0933. Number of Recent Calls](./05-queue/0933-number-of-recent-calls_REDO/)
+- [ ] [0206. Reverse Linked List](./08-linked-list/0206-reverse-linked-list-REDO/)
+- [ ] [0322. Coin Change](./09-dp/0322-coin-change-REDO/)
+- [ ] [0695. Max Area of Island](./12-2d-grid/0695-max-area-of-island-REDO/)
+
+### Top 10 Medium (3개)
+- [ ] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters_REDO/)
+- [ ] [0015. 3Sum](./top-10-medium/0015-3sum_REDO/)
+- [ ] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams_REDO/)
+
+---
+
 ## Medium 문제 (주제 라벨 없음 — 풀이 시 패턴 직접 식별)
 
 ### Top 10 Medium (필수)
@@ -84,7 +106,7 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0200. Number of Islands](./top-10-medium/0200-number-of-islands/)
 - [x] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams_REDO/) **(직접)**
 - [x] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters_REDO/) **(직접)**
-- [x] [0015. 3Sum](./top-10-medium/0015-3sum/) **(직접)**
+- [x] [0015. 3Sum](./top-10-medium/0015-3sum_REDO/) **(직접)**
 - [x] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree/)
 - [x] [0347. Top K Frequent Elements](./top-10-medium/0347-top-k-frequent-elements/)
 - [x] [0739. Daily Temperatures](./top-10-medium/0739-daily-temperatures/)
