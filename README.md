@@ -5,7 +5,8 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 ## 진척도
 
 - [x] Week 1: Easy 패턴별 마스터 (13/13)
-- [ ] Week 2: Medium 응용 + OOP Design + Mock Interview
+- [x] Week 2: Top 10 Medium (10/10)
+- [ ] Week 3: Rest Medium (0/24) + OOP Design 심화 + Mock Interview
 
 ## 패턴별 인덱스
 
@@ -33,8 +34,8 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 - [x] [0933. Number of Recent Calls](./05-queue/0933-number-of-recent-calls_REDO/)
 
 ### 6. Binary Search (2)
-- [ ] [0704. Binary Search](./06-binary-search/0704-binary-search/)
-- [ ] [0278. First Bad Version](./06-binary-search/0278-first-bad-version/)
+- [x] [0704. Binary Search](./06-binary-search/0704-binary-search/)
+- [x] [0278. First Bad Version](./06-binary-search/0278-first-bad-version/)
 
 ### 7. Tree (4)
 - [x] [0104. Maximum Depth of Binary Tree](./07-tree/0104-maximum-depth-of-binary-tree/)
@@ -75,16 +76,16 @@ Google FDE 면접 준비를 위한 LeetCode 풀이 정리.
 ## Medium 문제 (주제 라벨 없음 — 풀이 시 패턴 직접 식별)
 
 ### Top 10 Medium (필수)
-- [ ] [0146. LRU Cache](./top-10-medium/0146-lru-cache/)
-- [ ] [0200. Number of Islands](./top-10-medium/0200-number-of-islands/)
-- [ ] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams/)
-- [ ] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters/)
-- [ ] [0015. 3Sum](./top-10-medium/0015-3sum/)
-- [ ] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree/)
-- [ ] [0347. Top K Frequent Elements](./top-10-medium/0347-top-k-frequent-elements/)
-- [ ] [0739. Daily Temperatures](./top-10-medium/0739-daily-temperatures/)
-- [ ] [0033. Search in Rotated Sorted Array](./top-10-medium/0033-search-in-rotated-sorted-array/)
-- [ ] [0322. Coin Change](./top-10-medium/0322-coin-change/)
+- [x] [0146. LRU Cache](./top-10-medium/0146-lru-cache/)
+- [x] [0200. Number of Islands](./top-10-medium/0200-number-of-islands/)
+- [x] [0049. Group Anagrams](./top-10-medium/0049-group-anagrams_REDO/)
+- [x] [0003. Longest Substring Without Repeating Characters](./top-10-medium/0003-longest-substring-without-repeating-characters_REDO/)
+- [x] [0015. 3Sum](./top-10-medium/0015-3sum/)
+- [x] [0098. Validate Binary Search Tree](./top-10-medium/0098-validate-binary-search-tree/)
+- [x] [0347. Top K Frequent Elements](./top-10-medium/0347-top-k-frequent-elements/)
+- [x] [0739. Daily Temperatures](./top-10-medium/0739-daily-temperatures/)
+- [x] [0033. Search in Rotated Sorted Array](./top-10-medium/0033-search-in-rotated-sorted-array/)
+- [x] [0322. Coin Change](./top-10-medium/0322-coin-change/)
 
 ### Rest Medium (24문제, Top 10 마친 후)
 [`./rest-medium/`](./rest-medium/) — 0002, 0011, 0019, 0022, 0034, 0074, 0075, 0128, 0143, 0150, 0198, 0199, 0207, 0230, 0236, 0300, 0380, 0424, 0438, 0535, 0560, 0567, 0981, 0994
@@ -127,3 +128,13 @@ python 01-hash-map-set/0001-two-sum.py
 | 11 | Min Stack | Stack (OOP) | 보조 스택으로 최솟값 추적 |
 | 12 | Queue using Stacks | Stack/Queue (OOP) | 두 스택으로 FIFO 흉내 |
 | 13 | Recent Counter | Queue (deque) | 시간 윈도우 관리 |
+| 14 | LRU Cache | Hash Map + DLL | dict로 O(1) 조회, DLL로 O(1) 순서 갱신 |
+| 15 | Number of Islands | 2D Grid DFS | 1 만나면 DFS로 한 섬 통째 방문 처리 |
+| 16 | Group Anagrams | Hash Map | sorted(word) 또는 카운트 튜플을 키로 그룹핑 |
+| 17 | Longest Substring | Sliding Window (가변) | 중복 만나면 left를 dict 기반으로 점프 |
+| 18 | 3Sum | Sort + Two Pointers | i 고정 + 양 끝 포인터, 세 위치 모두 dedup |
+| 19 | Validate BST | Tree DFS + 경계 전달 | 각 노드에 (lo, hi) 범위 전파 |
+| 20 | Top K Frequent | Heap / Bucket Sort | 빈도 카운트 후 size-k min-heap or 빈도-인덱스 버킷 |
+| 21 | Daily Temperatures | Monotonic Stack | 감소 스택에 인덱스 보관, 크면 pop하며 거리 계산 |
+| 22 | Search in Rotated | Binary Search 변형 | mid 기준 어느 쪽이 정렬됐는지 판별 후 분기 |
+| 23 | Coin Change | 1D DP | dp[i] = min(dp[i-c]+1) for c in coins |
